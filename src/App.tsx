@@ -146,8 +146,6 @@ function App() {
     setCurrentUser(null)
   }
 
-  // User-namespaced storage keys
-  const userKey = (key: string) => currentUser ? `chatdo_${currentUser.id}_${key}` : `chatdo_${key}`
 
   // --- PERSISTENCE HELPERS ---
   const getInitialTasks = (): Task[] => {
@@ -663,7 +661,7 @@ function App() {
                 value={stat}
                 drag="x"
                 dragConstraints={{ left: -100, right: 0 }}
-                onDragEnd={(e, info) => {
+                onDragEnd={(_, info) => {
                   if (info.offset.x < -80) {
                     deleteCategory(stat.name)
                   }

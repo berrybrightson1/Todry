@@ -11,7 +11,7 @@ const getContext = () => {
 }
 
 // Helper to create a smooth gain envelope
-const createEnvelope = (ctx: AudioContext, param: AudioParam, now: number, duration: number) => {
+const createEnvelope = (param: AudioParam, now: number, duration: number) => {
     param.setValueAtTime(0, now)
     param.linearRampToValueAtTime(1, now + 0.01)
     param.exponentialRampToValueAtTime(0.001, now + duration)
@@ -27,7 +27,7 @@ export const playPop = () => {
     osc.frequency.setValueAtTime(600, now)
     osc.frequency.exponentialRampToValueAtTime(300, now + 0.1)
 
-    createEnvelope(ctx, gain.gain, now, 0.1)
+    createEnvelope(gain.gain, now, 0.1)
 
     osc.connect(gain)
     gain.connect(ctx.destination)
@@ -84,7 +84,7 @@ export const playDelete = () => {
     filter.frequency.exponentialRampToValueAtTime(100, now + 0.2)
 
     const gain = ctx.createGain()
-    createEnvelope(ctx, gain.gain, now, 0.2)
+    createEnvelope(gain.gain, now, 0.2)
 
     noise.connect(filter)
     filter.connect(gain)

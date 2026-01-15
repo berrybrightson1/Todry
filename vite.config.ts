@@ -12,8 +12,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
-        name: 'ChatDo',
-        short_name: 'ChatDo',
+        name: 'Todry',
+        short_name: 'Todry',
         description: 'A Spatial UI To-Do App',
         theme_color: '#0061FF',
         icons: [
